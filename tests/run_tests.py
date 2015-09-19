@@ -1,25 +1,36 @@
 #!/usr/bin/env python
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
-import unittest
+#
+# para rodar os testes: 
+# - no shell entre na pasta tests/
+# - execute: python run_tests.py
+#
+
+#inicializa os testes
+
 import sys
 import os
-
+# PROJECT_PATH - pasta anterior a pasta atual
 PROJECT_PATH = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-2])
+# ROOT_PATH - pasta atual, onde o run_tests.py esta
 ROOT_PATH = os.path.dirname(__file__)
-
-print PROJECT_PATH #pasta anterior a pasta atual
-print ROOT_PATH #pasta atual, onde o run_tests.py esta
-
-#sys.path.append(os.path.abspath(PROJECT_PATH))
-mods=['controller','modules'] #diretorios que contem modulos a serem testados
+#adiciona no sys.path os diretorios que contem arquivos ou modulos a serem testados
+mods=['controllers','modules']
 for m in mods:
     sys.path.append(os.path.abspath(PROJECT_PATH+'/'+m))
 
+#roda os testes da pasta test/
 
+import unittest
+if __name__ == '__main__':
+    tests = unittest.TestLoader().discover(ROOT_PATH, "*.py")
+    result = unittest.TextTestRunner().run(tests)
 
-print sys.path
-
+    if result.wasSuccessful():
+        print result
+    else:
+        sys.exit(1)
 
 '''
 if __name__ == '__main__':
