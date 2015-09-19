@@ -8,6 +8,8 @@
 '%s selected': '%s selecionado',
 '%Y-%m-%d': '%d-%m-%Y',
 '%Y-%m-%d %H:%M:%S': '%d-%m-%Y %H:%M:%S',
+'5': '5',
+'55': '55',
 '@markmin\x01An error occured, please [[reload %s]] the page': 'Ocorreu um erro, por favor [[reload %s]] a página',
 'About': 'Sobre',
 'Access Control': 'Controle de Acesso',

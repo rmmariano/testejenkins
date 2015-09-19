@@ -8,6 +8,15 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
+import fib
+
+def cfib():
+    value_fib = fib.fib(10)
+    return dict(message=T(str(value_fib)))
+
+def text():
+    return dict(text="Text")
+
 def index():
     """
     example action using the internationalization operator T and flash
@@ -18,13 +27,6 @@ def index():
     """
     response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
-
-def cfib():
-
-    value_fib = fib(5)
-
-    return value_fib
-
 
 def user():
     """
