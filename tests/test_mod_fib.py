@@ -1,15 +1,8 @@
-import sys
-import os
-
-#PROJECT_PATH - pasta anterior a pasta atual
-PROJECT_PATH = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-2])
-#ROOT_PATH - pasta atual, onde o run_tests.py esta
-ROOT_PATH = os.path.dirname(__file__)
-#faz o sys.path apontar para a pasta modules, para que possa ser feito o import do modulo fib.py
-sys.path.append(os.path.abspath(PROJECT_PATH+"/modules"))
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import fib
-from unittest import TestCase, main
+from unittest import TestCase
 
 class TestFib(TestCase):
 	def test0(self):
@@ -19,5 +12,4 @@ class TestFib(TestCase):
 	def test10(self):
 		self.assertEqual(fib.fib(10), 55)
 
-if __name__ ==  '__main__':
-	main()
+#nao necessita do main() aqui, pois este arquivo sera chamado pelo run_tests.py

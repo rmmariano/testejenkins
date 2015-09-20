@@ -46,7 +46,6 @@ def user():
     """
     return dict(form=auth())
 
-
 @cache.action()
 def download():
     """
@@ -54,7 +53,6 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
-
 
 def call():
     """
@@ -64,5 +62,3 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
-
