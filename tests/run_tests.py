@@ -12,10 +12,10 @@
 import sys
 import os
 # W2P_PATH - pasta que fica localizado o web2py
-# W2P_PATH = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-4])
-# sys.path.append(os.path.abspath(W2P_PATH+'/gluon'))
-# print W2P_PATH
-# print sys.path
+W2P_PATH = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-4])
+sys.path.append(os.path.abspath(W2P_PATH))
+print W2P_PATH
+print sys.path
 # PROJECT_PATH - pasta anterior a pasta atual (raiz projeto)
 PROJECT_PATH = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-2])
 # ROOT_PATH - pasta atual, onde o run_tests.py esta
