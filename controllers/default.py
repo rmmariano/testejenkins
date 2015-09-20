@@ -8,6 +8,9 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
+from fake_import import * # importa os objetos globais (request, response, session, cache e T)
+							# em forma de mock (fake objects)
+
 import fib
 
 def cfib():

@@ -39,10 +39,10 @@ if __name__ == '__main__':
     if not result.wasSuccessful():
         sys.exit(1)
 
+
 # #
 # #
 # # from gluon import *
-# if False: 
 #     import gluon.languages.translator as T 
 #     from gluon.cache import Cache 
 #     from gluon.contrib.gql import GQLDB 
