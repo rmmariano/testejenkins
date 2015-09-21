@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import fib
 from unittest import TestCase
 
-class TestFib(TestCase):
+# Importa o módulo que será testado
+import fib
+
+# Testes relacionado ao Módulo Fib
+class TestModFib(TestCase):
 	def test0(self):
 		self.assertEqual(fib.fib(1), 1)
 	def test1(self):
@@ -12,4 +15,5 @@ class TestFib(TestCase):
 	def test10(self):
 		self.assertEqual(fib.fib(10), 55)
 
-#nao necessita do main() aqui, pois este arquivo sera chamado pelo run_tests.py
+# Não necessita do main() do unittest aqui, pois este arquivo será
+# chamado pelo run_tests.py

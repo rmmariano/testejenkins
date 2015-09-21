@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-if 'T' not in locals():
-	from fake_import import *
-
 # this file is released under public domain and you can use without limitations
 
 #########################################################################
@@ -12,8 +9,9 @@ if 'T' not in locals():
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
-#from fake_import import * # importa os objetos globais (request, response, session, cache e T)
-							# em forma de mock (fake objects)
+# Este import tratará de importar os objetos globais do web2py quando ele estiver rodando
+# e quando o sistema estiver em teste, importa os mocks.
+from tw2p import * 
 
 import fib
 
@@ -26,16 +24,16 @@ def ctext():
     return dict(text="Text")
 
 
-# def index():
-#     """
-#     example action using the internationalization operator T and flash
-#     rendered by views/default/index.html or views/generic.html
+def index():
+    """
+    example action using the internationalization operator T and flash
+    rendered by views/default/index.html or views/generic.html
 
-#     if you need a simple wiki simply replace the two lines below with:
-#     return auth.wiki()
-#     """
-#     response.flash = T("Hello World")
-#     return dict(message=T('Welcome to web2py!'))
+    if you need a simple wiki simply replace the two lines below with:
+    return auth.wiki()
+    """
+    response.flash = T("Hello World")
+    return dict(message=T('Welcome to web2py!'))
 
 # def user():
 #     """
