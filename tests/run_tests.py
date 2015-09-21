@@ -34,6 +34,7 @@ if __name__ == '__main__':
     #pega todos os arquivos da pasta corrente que sejam .py
     tests = TestLoader().discover(ROOT_PATH, "*.py")
     #roda os testes
+    #result = TextTestRunner(verbosity=2).run(tests) #verbosity=2 aumenta o nivel de detalhe da said
     result = TextTestRunner().run(tests)
     #se houver algum problema nos testes, fecha o programa
     if not result.wasSuccessful():

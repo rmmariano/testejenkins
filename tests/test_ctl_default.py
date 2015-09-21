@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#from fake_import import *
-
 import default
 from unittest import TestCase
 
