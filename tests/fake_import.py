@@ -25,9 +25,6 @@ request = Mock()
 # objeto fake do session
 session = Mock()
 
-# objeto fake do session
-session = Mock()
-
 # #
 # #
 # # Alguns imports globais do web2py
