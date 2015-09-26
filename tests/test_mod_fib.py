@@ -15,7 +15,7 @@ class TestModFib(TestCase):
 	def test10(self):
 		self.assertEqual(fib.fib(10), 55)
 	def test0_erro(self):
-		self.assertEqual(fib.fib(10), 100)
+		self.assertEqual(fib.fib(10), 90)
 
 # Não necessita do main() do unittest aqui, pois este arquivo será
 # chamado pelo run_tests.py
