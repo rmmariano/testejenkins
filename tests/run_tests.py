@@ -35,8 +35,8 @@ if __name__ == '__main__':
     tests = TestLoader().discover(ROOT_PATH, "*.py")
     # Roda os testes
     # verbosity=2 aumenta o nível de detalhe da saida
-    #result = TextTestRunner(verbosity=2).run(tests) 
-    result = TextTestRunner().run(tests)
+    result = TextTestRunner(verbosity=2).run(tests) 
+    #result = TextTestRunner().run(tests)
     # Se houver algum problema nos testes, fecha o programa
     if not result.wasSuccessful():
         sys.exit(1)
