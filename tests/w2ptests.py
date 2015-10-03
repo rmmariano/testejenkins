@@ -6,24 +6,35 @@
 
 # TODO: colocar os demais objetos globais aqui.
 
+# importa o TestCase, para a criacao do W2PTestCase
+from unittest import TestCase
+
 # importa o Mock, para a criação dos objetos falsos.
 from mock import Mock
 
 # objeto fake do T
-def foo(f):
+def __T__(f):
 	return f
-# Quando T() for chamado, será retornado o valor que entrar, porque não é necessário
-# testar a funcionalidade do T(), pois é uma função do sistema, não do desenvolvedor.
-T = Mock(side_effect = foo)
 
-# objeto fake do cache
-cache = Mock()
+# W2PTestCase herda da TestCase
+class W2PTestCase(TestCase):
+	# Inicia os atributos do W2PTestCase, criando os mocks necessarios para os
+	# imports automaticos do web2py
+	def setUp(self,*controllers):
+		for c in controllers:
+			# Quando T() for chamado, será retornado o valor que entrar, porque não é necessário
+			# testar a funcionalidade do T(), pois é uma função do sistema, não do desenvolvedor.
+			c.T=Mock(side_effect=__T__)
+			# objeto fake do cache
+			c.cache=Mock()
+			# objeto fake do request
+			c.request=Mock()
+			# objeto fake do response
+			c.response=Mock()
+			# objeto fake do session
+			c.session=Mock()
 
-# objeto fake do request
-request = Mock()
 
-# objeto fake do session
-session = Mock()
 
 # #
 # #

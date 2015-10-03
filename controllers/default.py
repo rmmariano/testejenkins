@@ -9,10 +9,6 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
-# Este import tratará de importar os objetos globais do web2py quando ele estiver rodando
-# e quando o sistema estiver em teste, importa os mocks.
-from tw2p import * 
-
 import fib
 
 def cfib():
