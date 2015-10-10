@@ -14,7 +14,6 @@ class TestCtlDefault(W2PTestCase):
 		# passando apos o self os controllers que serao testados
 		W2PTestCase.setUp(self,default)
 	def test_cfib(self):
-		# O controller default importa automaticamente o T (nao explicitamente)
 		self.assertEqual(default.cfib()['message'],'55')
 	def test_text(self):
 		self.assertEqual(default.ctext()['text'],'Text')
