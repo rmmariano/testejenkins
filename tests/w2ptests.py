@@ -59,7 +59,6 @@ def import_classes(mod):
 	mod.SQLFORM=SQLFORM
 
 def import_gluon_validators(mod):
-	mod.ANY_OF=ANY_OF
 	mod.CLEANUP=CLEANUP
 	mod.CRYPT=CRYPT
 	mod.IS_ALPHANUMERIC=IS_ALPHANUMERIC
@@ -76,14 +75,10 @@ def import_gluon_validators(mod):
 	mod.IS_IMAGE=IS_IMAGE
 	mod.IS_INT_IN_RANGE=IS_INT_IN_RANGE
 	mod.IS_IN_DB=IS_IN_DB
-	mod.IS_IN_SET=IS_IN_SET
-	mod.IS_IPADDRESS=IS_IPADDRESS
+	mod.IS_IN_SET=IS_IN_SET	
 	mod.IS_IPV4=IS_IPV4
-	mod.IS_IPV6=IS_IPV6
-	mod.IS_JSON=IS_JSON
 	mod.IS_LENGTH=IS_LENGTH
 	mod.IS_LIST_OF=IS_LIST_OF
-	mod.IS_LIST_OF_EMAILS=IS_LIST_OF_EMAILS
 	mod.IS_LOWER=IS_LOWER
 	mod.IS_MATCH=IS_MATCH
 	mod.IS_NOT_EMPTY=IS_NOT_EMPTY
@@ -96,9 +91,16 @@ def import_gluon_validators(mod):
 	mod.IS_UPPER=IS_UPPER
 	mod.IS_URL=IS_URL
 
+	# não funcionam quando usados dentro do virtualenv utilizando o gluon do web2py
+	# que foi instalado (pip install web2py)
+	# mod.ANY_OF=ANY_OF
+	# mod.IS_IPADDRESS=IS_IPADDRESS
+	# mod.IS_IPV6=IS_IPV6
+	# mod.IS_JSON=IS_JSON
+	# mod.IS_LIST_OF_EMAILS=IS_LIST_OF_EMAILS
+
 def import_gluon_html(mod):
 	mod.A=A
-	mod.ASSIGNJS=ASSIGNJS
 	mod.B=B
 	mod.BEAUTIFY=BEAUTIFY
 	mod.BODY=BODY
@@ -163,6 +165,11 @@ def import_gluon_html(mod):
 	mod.XML=XML
 	mod.embed64=embed64
 	mod.xmlescape=xmlescape
+
+	# não funcionam quando usados dentro do virtualenv utilizando o gluon do web2py
+	# que foi instalado (pip install web2py)
+	#mod.ASSIGNJS=ASSIGNJS
+
 
 
 # W2PTestCase herda da TestCase
