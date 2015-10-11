@@ -45,13 +45,13 @@ class W2PTestCase(TestCase):
 # from gluon.cache import Cache 
 # from gluon.globals import Request 
 # from gluon.globals import Response 
-# from gluon.globals import Session 
-# cache = Cache() 
-# request = Request() 
-# response = Response() 
-# session = Session() 
+# from gluon.globals import Session  
+# request = Request() #request = Request({})
+# cache = Cache() #cache = Cache(request)
+# response = Response() #funciona sem parametro
+# session = Session()  #funciona sem parametro
 
-# from gluon.contrib.gql import GQLDB 
+# from gluon.contrib.gql import GQLDB #error
 # from gluon.html import * 
 # from gluon.http import HTTP 
 # from gluon.http import redirect 

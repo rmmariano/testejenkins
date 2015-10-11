@@ -15,8 +15,8 @@ from os import path as os_path
 sys_path_append=sys_path.append
 # Pasta onde fica localizado o web2py
 #W2P_PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-4])
-#W2P_PATH = "/home/rodrigo/Arquivos/web2py" #o comando acima pegara este caminho
-# sys.path.append(os.path.abspath(W2P_PATH))
+W2P_PATH = "/docs/projects/web2py" #o comando acima pegara este caminho
+sys.path.append(os.path.abspath(W2P_PATH))
 # sys.path.append(os.path.abspath(W2P_PATH+'/gluon'))
 # sys.path.append(os.path.abspath(W2P_PATH+'/site-packages'))
 # Pasta anterior a pasta atual (raiz projeto)
