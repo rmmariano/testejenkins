@@ -11,22 +11,24 @@
 
 # Salva os caminhos das pastas que serão testadas no sys.path
 from sys import path as sys_path
+from sys import exit as sys_exit
 from os import path as os_path
 sys_path_append=sys_path.append
+os_path_abspath=os_path.abspath
 # Pasta onde fica localizado o web2py
 #W2P_PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-4])
 W2P_PATH = "/docs/projects/web2py" #o comando acima pegara este caminho
-sys.path.append(os.path.abspath(W2P_PATH))
+sys_path_append(os_path_abspath(W2P_PATH))
 # sys.path.append(os.path.abspath(W2P_PATH+'/gluon'))
 # sys.path.append(os.path.abspath(W2P_PATH+'/site-packages'))
 # Pasta anterior a pasta atual (raiz projeto)
-PROJECT_PATH=os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-2])
+PROJECT_PATH=os_path.sep.join(os_path_abspath(__file__).split(os_path.sep)[:-2])
 # Pasta atual, onde o run_tests.py está
 ROOT_PATH=os_path.dirname(__file__)
 #adiciona no sys.path os diretorios que contém arquivos ou módulos a serem testados
 mods=['controllers','modules']
 for m in mods:
-    sys_path_append(os_path.abspath(PROJECT_PATH+'/'+m))
+    sys_path_append(os_path_abspath(PROJECT_PATH+'/'+m))
 
 # Roda os testes da pasta test/
 from unittest import TestLoader, TextTestRunner
@@ -39,4 +41,4 @@ if __name__=='__main__':
     #result = TextTestRunner().run(tests)
     # Se houver algum problema nos testes, fecha o programa
     if not result.wasSuccessful():
-        sys.exit(1)
+        sys_exit(1)
