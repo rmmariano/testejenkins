@@ -15,10 +15,26 @@ from sys import exit as sys_exit
 from os import path as os_path
 sys_path_append=sys_path.append
 os_path_abspath=os_path.abspath
-# Pasta onde fica localizado o web2py
-#W2P_PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-4])
-W2P_PATH = "/docs/projects/web2py" #o comando acima pegara este caminho
+
+# Localizando a pasta onde o web2py está para colocá-lo no sys.path
+W2P = '/web2py/applications/'
+JNKS = '/jenkins/jobs/'
+PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep))
+print '\nPATH='+str(PATH)
+
+if W2P in PATH:
+    W2P_PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-4])
+elif JNKS in PATH:
+    W2P_PATH = os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-6])
+    W2P_PATH = W2P_PATH+'/web2py'
+else:
+    raise Exception('Problem with the PATH. Please contact an administrator!')
+    sys_exit(1)
+
+#W2P_PATH = "/docs/projects/web2py" #o comando acima pegara este caminho
 sys_path_append(os_path_abspath(W2P_PATH))
+print '\nW2P_PATH='+str(W2P_PATH)
+
 # sys.path.append(os.path.abspath(W2P_PATH+'/gluon'))
 # sys.path.append(os.path.abspath(W2P_PATH+'/site-packages'))
 # Pasta anterior a pasta atual (raiz projeto)
