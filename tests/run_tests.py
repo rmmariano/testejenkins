@@ -11,6 +11,8 @@
 from sys import path as sys_path
 from sys import exit as sys_exit
 from os import path as os_path
+from os import remove as os_remove
+from unittest import TestLoader, TextTestRunner
 sys_path_append=sys_path.append
 os_path_abspath=os_path.abspath
 
@@ -38,8 +40,17 @@ mods=['controllers','modules']
 for m in mods:
     sys_path_append(os_path_abspath(PROJECT_PATH+'/'+m))
 
+def clear():
+    print '\n'
+    file_name = '/storage.sqlite'
+    DB_PATH = (os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-1])) + file_name
+    print DB_PATH
+    try:
+        os_remove(DB_PATH)
+    except:
+        print 'WARNING: Not found the file: \n'+DB_PATH
+
 # Roda os testes da pasta test/
-from unittest import TestLoader, TextTestRunner
 if __name__=='__main__':
     # Pega todos os arquivos da pasta corrente que sejam .py
     tests=TestLoader().discover(ROOT_PATH,"*.py")
@@ -47,6 +58,7 @@ if __name__=='__main__':
     # verbosity=2 aumenta o nível de detalhe da saida
     result=TextTestRunner(verbosity=2).run(tests) 
     #result = TextTestRunner().run(tests)
+    clear()
     # Se houver algum problema nos testes, fecha o programa
     if not result.wasSuccessful():
         sys_exit(1)
