@@ -41,6 +41,10 @@ class W2PTestCase(TestCase):
 			import_gluon_validators(c)
 			import_gluon_html(c)
 
+	# def tearDown(self):
+	# 	# TODO: excluir storage.sqlite da pasta tests/ para evitar consumir memória à toa.
+	# 	pass
+
 			
 # objeto fake do T
 def __T__(f):
