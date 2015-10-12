@@ -171,7 +171,6 @@ def import_gluon_html(mod):
 	#mod.ASSIGNJS=ASSIGNJS
 
 
-
 # W2PTestCase herda da TestCase
 # class W2PTestCase(TestCase):
 # 	# Inicia os atributos do W2PTestCase, criando os mocks necessarios para os
