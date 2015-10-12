@@ -28,7 +28,7 @@ elif JNKS in PATH:
 else:
     raise Exception('Problem with the PATH. Please, contact an administrator!')
     sys_exit(1)
-#W2P_PATH = "/docs/projects/web2py"
+# Coloca o caminho do Web2py no sys.path, para que as bibliotecas dele possam ser importadas
 sys_path_append(os_path_abspath(W2P_PATH))
 
 # Pasta anterior a pasta atual (raiz projeto)
@@ -41,14 +41,13 @@ for m in mods:
     sys_path_append(os_path_abspath(PROJECT_PATH+'/'+m))
 
 def clear():
-    print '\n'
     file_name = '/storage.sqlite'
+    # DB_PATH aponta para o arquivo storage.sqlite dentro da pasta tests/
     DB_PATH = (os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-1])) + file_name
-    print DB_PATH
     try:
         os_remove(DB_PATH)
     except:
-        print 'WARNING: Not found the file: \n'+DB_PATH
+        raise OSError('WARNING: Not found the file: '+DB_PATH)
 
 # Roda os testes da pasta test/
 if __name__=='__main__':
@@ -58,6 +57,7 @@ if __name__=='__main__':
     # verbosity=2 aumenta o nível de detalhe da saida
     result=TextTestRunner(verbosity=2).run(tests) 
     #result = TextTestRunner().run(tests)
+    # Limpa o lixo que é criado temporariamente
     clear()
     # Se houver algum problema nos testes, fecha o programa
     if not result.wasSuccessful():
