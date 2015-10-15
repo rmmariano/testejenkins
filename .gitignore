@@ -34,3 +34,6 @@ HOWTO-web2py-devel
 *.sublime-project
 *.sublime-workspace
 .idea/*
+venv/
+!venv/run_tests.sh
+!venv/requirements.txt

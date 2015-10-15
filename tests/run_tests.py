@@ -40,14 +40,28 @@ mods=['controllers','modules']
 for m in mods:
     sys_path_append(os_path_abspath(PROJECT_PATH+'/'+m))
 
+# def clear():
+#     file_name = '/storage.sqlite'
+#     # DB_PATH aponta para o arquivo storage.sqlite dentro da pasta tests/
+#     DB_PATH = (os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-1])) + file_name
+#     try:
+#         os_remove(DB_PATH)
+#     except:
+#         raise OSError('WARNING: Not found the file: '+DB_PATH)
+
 def clear():
     file_name = '/storage.sqlite'
-    # DB_PATH aponta para o arquivo storage.sqlite dentro da pasta tests/
-    DB_PATH = (os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-1])) + file_name
     try:
+        # DB_PATH aponta para o arquivo storage.sqlite dentro da pasta raiz
+        DB_PATH = PROJECT_PATH + file_name
         os_remove(DB_PATH)
     except:
-        raise OSError('WARNING: Not found the file: '+DB_PATH)
+        try:
+            # DB_PATH aponta para o arquivo storage.sqlite dentro da pasta tests/
+            DB_PATH_TESTS = (os_path.sep.join(os_path.abspath(__file__).split(os_path.sep)[:-1])) + file_name
+            os_remove(DB_PATH_TESTS)
+        except:
+            raise OSError('WARNING: Not found the files: '+DB_PATH+" and "+DB_PATH_TESTS)
 
 # Roda os testes da pasta test/
 if __name__=='__main__':
