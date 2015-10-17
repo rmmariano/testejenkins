@@ -29,7 +29,8 @@ class W2PTestCase(TestCase):
 		for c in controllers:
 			c.T=Mock(side_effect=__T__)
 
-			c.request=Request({})
+			c.request=Request() # = web2py 2.1.1
+			#c.request=Request({}) # > web2py 2.1.1
 			c.cache=Cache(c.request)
 			c.response=Response()
 			c.session=Session()
