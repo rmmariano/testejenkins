@@ -7,8 +7,7 @@ errors/*
 databases/*
 sessions/*
 cache/*
-tests/storage.sqlite
-storage.sqlite
+*/db_test.sqlite
 static/temp
 progress.log
 __pycache__/*

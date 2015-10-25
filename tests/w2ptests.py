@@ -36,7 +36,7 @@ class W2PTestCase(TestCase):
 			c.session=Session()
 
 			c.redirect=redirect
-			c.db=DAL('sqlite://storage.sqlite', pool_size=1, check_reserved=['all'])
+			c.db=DAL('sqlite://tests/db_test.sqlite', pool_size=1, check_reserved=['all'])
 
 			import_classes(c)
 			import_gluon_validators(c)
