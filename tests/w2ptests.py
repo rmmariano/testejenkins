@@ -7,22 +7,23 @@ from unittest import TestCase
 # importa o Mock, para a criação dos objetos falsos.
 from mock import Mock
 
-from gluon.cache import Cache 
-from gluon.globals import Request 
-from gluon.globals import Response 
-from gluon.globals import Session  
+# from gluon.cache import Cache 
+# from gluon.globals import Request 
+# from gluon.globals import Response 
+# from gluon.globals import Session  
 
-from gluon.http import HTTP 
-from gluon.sql import DAL 
-from gluon.sql import Field 
-from gluon.sql import SQLDB 
-from gluon.sqlhtml import SQLFORM 
+# from gluon.http import HTTP 
+# from gluon.sql import DAL 
+# from gluon.sql import Field 
+# from gluon.sql import SQLDB 
+# from gluon.sqlhtml import SQLFORM 
 
-from gluon.http import redirect 
+# from gluon.http import redirect 
 
-from gluon.validators import * 
-from gluon.html import * 
+# from gluon.validators import * 
+# from gluon.html import * 
 
+from imports import *
 
 class W2PTestCase(TestCase):
 	def setUp(self,*controllers):
@@ -170,6 +171,31 @@ def import_gluon_html(mod):
 	# não funcionam quando usados dentro do virtualenv utilizando o gluon do web2py
 	# que foi instalado (pip install web2py)
 	#mod.ASSIGNJS=ASSIGNJS
+
+
+# init do gluon
+# if 0:
+#     from globals import Request, Response, Session
+#     from cache import Cache
+#     from languages import translator
+#     from tools import Auth, Crud, Mail, Service, PluginManager
+
+#     # API objects
+#     request = Request()
+#     response = Response()
+#     session = Session()
+#     cache = Cache(request)
+#     T = translator(request)
+
+#     # Objects commonly defined in application model files
+#     # (names are conventions only -- not part of API)
+#     db = DAL()
+#     auth = Auth(db)
+#     crud = Crud(db)
+#     mail = Mail()
+#     service = Service()
+#     plugins = PluginManager()
+
 
 
 # W2PTestCase herda da TestCase
