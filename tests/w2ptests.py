@@ -7,22 +7,7 @@ from unittest import TestCase
 # importa o Mock, para a criação dos objetos falsos.
 from mock import Mock
 
-# from gluon.cache import Cache 
-# from gluon.globals import Request 
-# from gluon.globals import Response 
-# from gluon.globals import Session  
-
-# from gluon.http import HTTP 
-# from gluon.sql import DAL 
-# from gluon.sql import Field 
-# from gluon.sql import SQLDB 
-# from gluon.sqlhtml import SQLFORM 
-
-# from gluon.http import redirect 
-
-# from gluon.validators import * 
-# from gluon.html import * 
-
+# importa os imports automáticos do web2py
 from imports import *
 
 class W2PTestCase(TestCase):
@@ -37,7 +22,7 @@ class W2PTestCase(TestCase):
 			c.session=Session()
 
 			c.redirect=redirect
-			c.db=DAL('sqlite://tests/db_test.sqlite', pool_size=1, check_reserved=['all'])
+			c.db=db
 
 			import_classes(c)
 			import_gluon_validators(c)
@@ -171,6 +156,18 @@ def import_gluon_html(mod):
 	# não funcionam quando usados dentro do virtualenv utilizando o gluon do web2py
 	# que foi instalado (pip install web2py)
 	#mod.ASSIGNJS=ASSIGNJS
+
+
+#new
+# def import_lib(package):
+# 	imp = importlib.import_module(package)
+# 	return imp
+
+# def import_exec():
+# 	variables= {}
+# 	filename = "/docs/projects/web2py/applications/lojadecarro"
+# 	execfile(filename+"/models/carros.py",variables)
+# 	return variables
 
 
 # init do gluon
