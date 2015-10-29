@@ -8,6 +8,7 @@ databases/*
 sessions/*
 cache/*
 */db_test.sqlite*
+dummy.db
 static/temp
 progress.log
 __pycache__/*
