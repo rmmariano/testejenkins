@@ -12,18 +12,27 @@ from global_imports import *
 
 class W2PTestCase(TestCase):	
 	def setUp(self,*controllers):
+		#initVars()
 		for c in controllers:
 			c.db=None
 
-			c.T=Mock(side_effect=__T__)
-			c.URL=Mock(side_effect=__URL__)
-			c.IS_URL=Mock(side_effect=__IS_URL__)
+			c.T=Mock(side_effect=m__T__)
+			c.URL=Mock(side_effect=m__URL__)
+			c.IS_URL=Mock(side_effect=m__IS_URL__)
 
-			c.request=request # = web2py 2.1.1
+			c.crud=crud
+
+			c.request=Request() # = web2py 2.1.1
 			#c.request=Request({}) # > web2py 2.1.1
-			c.cache=cache
-			c.response=response
-			c.session=session
+			c.cache=Cache(request)
+			c.response=Response()
+			c.session=Session()
+
+			# c.request=request
+			# c.cache=cache
+			# c.response=response
+			# c.session=session
+
 			c.redirect=redirect
 
 			import_classes(c)
@@ -35,23 +44,6 @@ class W2PTestCase(TestCase):
 			return True
 		return False
 	
-# função fake do T
-def __T__(f):
-	return f
-
-# função fake do URL
-def __URL__(foo,**dfoo):
-	foo = 'http://'+str(foo)
-	for f in dfoo:
-		foo=foo+'/'+str(dfoo[f])
-	return foo
-
-# função fake do IS_URL
-def __IS_URL__(foo,**dfoo):
-	foo = str(foo)
-	if foo.startswith('http://') or foo.startswith('https://'):
-		return True
-	return False
 
 def import_classes(mod):
 	mod.Request=Request
@@ -64,10 +56,9 @@ def import_classes(mod):
 	mod.Field=Field
 	mod.SQLDB=SQLDB
 	mod.SQLFORM=SQLFORM
+	mod.SQLTABLE=SQLTABLE
 
 def import_gluon_validators(mod):
-	#mod.IS_URL=IS_URL # criado mock para ele
-
 	mod.CLEANUP=CLEANUP
 	mod.CRYPT=CRYPT
 	mod.IS_ALPHANUMERIC=IS_ALPHANUMERIC
@@ -108,8 +99,6 @@ def import_gluon_validators(mod):
 	# mod.IS_LIST_OF_EMAILS=IS_LIST_OF_EMAILS
 
 def import_gluon_html(mod):
-	#mod.URL=URL # criado mock para ele
-
 	mod.A=A
 	mod.B=B
 	mod.BEAUTIFY=BEAUTIFY

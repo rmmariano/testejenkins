@@ -16,6 +16,7 @@ class TestCtlDefault(W2PTestCase):
 		#inicializarDb(carros)
 		#construirDependencias()
 	# def tearDown(self):
+	# 	# truncate apaga todos os registros e começa a contar os ids a partir do 1 novamente
 	# 	for table_name in carros.db.tables():
 	# 		carros.db[table_name].truncate()
 	# 	carros.db.commit()
@@ -29,9 +30,9 @@ class TestCtlDefault(W2PTestCase):
 # chamado pelo run_tests.py
 
 # def inicializarDb(foo):
+# 	# o id dos registros começam do 1
 # 	id_marca1 = foo.db.marca.insert(nome="marca1")
 # 	id_marca2 = foo.db.marca.insert(nome="marca2")
-
 # 	foo.db.carro.insert(marca=id_marca1,modelo="modelo1",ano=1950,estado="Novo",
 # 						cor="Preto",valor=30000,descr="um carro preto novo",
 # 						itens=['item1','item2'])
@@ -40,6 +41,32 @@ class TestCtlDefault(W2PTestCase):
 # 						itens=['item3'])
 
 # def construirDependencias():
-# 	default.db = carros.db
+# 	default.db = carros.db = DB_CARROS
+# 	default.request = carros.request
+# 	default.response = carros.response
+# 	default.session = carros.session
+# 	default.cache = carros.cache
 # 	vitrine.Moeda=_web2py_brasil_utils.Moeda
 # 	default.VITRINE=vitrine.VITRINE
+
+# def row_with_result_test(self,row,result):
+# 	self.assertEqual(True,self.inside(default.URL('detalhes', args=row.id),result['vitrine']))
+# 	self.assertEqual(True,self.inside(row.marca,result['vitrine']))
+# 	self.assertEqual(True,self.inside(row.modelo,result['vitrine']))
+# 	self.assertEqual(True,self.inside(row.ano,result['vitrine']))
+# 	self.assertEqual(True,self.inside(row.estado,result['vitrine']))
+# 	self.assertEqual(True,self.inside(row.cor,result['vitrine']))
+# 	for item in row.itens:
+# 		self.assertEqual(True,self.inside(item,result['vitrine']))	
+# 	self.assertEqual(True,self.inside(row.descr,result['vitrine']))
+# 	self.assertEqual(True,self.inside(_web2py_brasil_utils.Moeda(row.valor),result['vitrine']))
+
+# # serve somente para verificar os registros existentes no inicializarDB
+# def verificarRegistros(self):
+# 	inicializarDb(carros)
+# 	query=default.db.carro.id>0
+# 	rows=default.db(query).select(orderby=default.db.carro.id) 
+# 	for r in rows:
+# 		print r
+# 		print '\n'
+# 	self.assertEqual('55','55')

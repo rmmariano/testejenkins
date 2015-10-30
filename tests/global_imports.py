@@ -3,30 +3,83 @@
 
 from common import *
 
-# Imports automáticos
-
 from os import path
 from os import remove
 from glob import glob
 
+# Imports automáticos
 from gluon.cache import Cache 
 from gluon.globals import Request, Response, Session
 from gluon.http import HTTP, redirect
 from gluon.sql import DAL, Field, SQLDB
-from gluon.sqlhtml import SQLFORM 
+from gluon.sqlhtml import SQLFORM,SQLTABLE
 from gluon.validators import * 
 from gluon.html import * 
+from gluon.globals import current
 
-request = Request()
-response = Response()
-session = Session()
-cache = Cache(request)
+
+# função fake/mock do T
+def m__T__(f):
+	return f
+
+# função fake/mock do URL
+# def m__URL__(foo,**dfoo):
+# 	foo = 'http://'+str(foo)
+# 	for f in dfoo:
+# 		foo=foo+'/'+str(dfoo[f])
+# 	return foo
+
+def m__URL__(a='', c='', f='', r='', args='', vars='', 
+	anchor='', extension='', env='', hmac_key='', hash_vars='', 
+	salt='', user_signature='', scheme='', host='', port='', 
+	encode_embedded_slash='', url_encode='', language=''):
+	
+	lfoo=[a,c,f,r,args,vars,anchor,extension,env,hmac_key,hash_vars,
+		salt,user_signature,scheme,host,port,encode_embedded_slash,url_encode,language]
+
+	foo = 'http://'
+	for f in lfoo:
+		if f != '':
+			foo=foo+str(f)+'/'
+
+	return foo
+
+# função fake/mock do IS_URL
+def m__IS_URL__(foo,**dfoo):
+	foo = str(foo)
+	if foo.startswith('http://') or foo.startswith('https://'):
+		return True
+	return False
+
+current.request = request = None
+current.response = response = None
+current.session = session = None
+current.cache = cache = None
+current.T = T = None
+
+def initVars():
+	global current, request, response, session, cache, T
+	current.request = request = Request()
+	current.response = response = Response()
+	current.session = session = Session()
+	current.cache = cache = Cache(request)
+	current.T = T = m__T__
+
+initVars()
 
 deleteDB()
 
 db = DAL('sqlite://'+DB_PATH)
 
 
+
+
+import gluon.tools as gt
+from mock import Mock
+
+gt.URL=Mock(side_effect=m__URL__)
+
+crud = gt.Crud(db)
 
 
 # # Alguns imports globais do web2py
