@@ -9,6 +9,8 @@ sessions/*
 cache/*
 */db_test.sqlite*
 dummy.db
+.coverage
+coverage_report.txt
 static/temp
 progress.log
 __pycache__/*
