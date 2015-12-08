@@ -1,11 +1,9 @@
 #!/bin/bash
 
 set -e  # If occur any error, exit
-
 function to_console {
-    echo -e "\n*** $1 ***\n"
+    echo -e "\n $1 \n"
 }
-
 
 
 virtualenv venv/
@@ -24,4 +22,4 @@ echo ""
 
 python tests/run_tests.py
 
-to_console "ok"
+to_console " --> Ran the tests in tests/run_tests.py"
