@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -e  # If occur any error, exit
+
+function to_console {
+    echo -e "\n*** $1 ***\n"
+}
+
+
+
 virtualenv venv/
 echo ""
 echo " --> Created the Virtualenv."
@@ -15,10 +23,5 @@ echo " --> Installed the requirements."
 echo ""
 
 python tests/run_tests.py
-echo ""
-echo " --> Ran the tests in tests/run_tests.py"
 
-deactivate
-echo ""
-echo " --> Deactivated the Virtualenv."
-echo ""
+to_console "ok"
