@@ -22,7 +22,8 @@ class TestCtlDefault(W2PTestCase):
 	# 	carros.db.commit()
 	def test_cfib(self):
 		# inicializarDb(carros)
-		self.assertEqual(default.cfib()['message'],'55')
+		#self.assertEqual(default.cfib()['message'],'55')
+		self.assertEqual(default.cfib()['message'],'5')
 	def test_text(self):
 		self.assertEqual(default.ctext()['text'],'Text')
 
