@@ -10,22 +10,23 @@ import default
 # Testes relacionado ao Controlador Default
 class TestCtlDefault(W2PTestCase):
 	def setUp(self):
-		# Chama o metodo do setUp() do W2PTestCase para inicializar os mocks
-		# passando apos o self os controllers que serao testados
 		W2PTestCase.setUp(self,default)
-		#inicializarDb(carros)
-		#construirDependencias()
-	# def tearDown(self):
-	# 	# truncate apaga todos os registros e começa a contar os ids a partir do 1 novamente
-	# 	for table_name in carros.db.tables():
-	# 		carros.db[table_name].truncate()
-	# 	carros.db.commit()
+	
 	def test_cfib(self):
-		# inicializarDb(carros)
-		#self.assertEqual(default.cfib()['message'],'55')
-		self.assertEqual(default.cfib()['message'],'5')
+		self.assertEqual(default.cfib()['message'],'55')
+		#self.assertEqual(default.cfib()['message'],'5')
 	def test_text(self):
 		self.assertEqual(default.ctext()['text'],'Text')
+
+
+
+
+
+
+
+
+
+
 
 # Não necessita do main() do unittest aqui, pois este arquivo será
 # chamado pelo run_tests.py
